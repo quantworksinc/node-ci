@@ -2,6 +2,9 @@ FROM node:10.9-alpine
 
 LABEL maintainer="it@quantworks.com"
 
+ENV CHROME_PATH=/usr/lib/chromium/
+ENV CHROME_BIN=/usr/bin/chromium-browser
+
 RUN apk update \
     && apk upgrade \
     && echo @edge http://nl.alpinelinux.org/alpine/edge/community \
@@ -14,7 +17,7 @@ RUN apk update \
         python \
         nss@edge \
         chromium@edge \
-    && pip install awscli
+    && pip install awscli \
+    && adduser -D chrome
 
-ENV CHROME_BIN=/usr/bin/chromium-browser
-ENV CHROME_PATH=/usr/lib/chromium/
+USER chrome
