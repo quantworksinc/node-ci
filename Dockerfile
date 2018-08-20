@@ -15,3 +15,6 @@ RUN apk update \
         nss@edge \
         chromium@edge \
     && pip install awscli
+
+ENV CHROME_BIN=/usr/bin/chromium-browser
+ENV CHROME_PATH=/usr/lib/chromium/
