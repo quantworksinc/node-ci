@@ -13,6 +13,7 @@ RUN apk update \
         >> /etc/apk/repositories \
     && apk add --no-cache \
         git \
+	make \
         py-pip \
         python \
         nss@edge \
